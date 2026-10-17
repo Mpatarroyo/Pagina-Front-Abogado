@@ -1,0 +1,891 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #fbf7f0; 
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+.contenedorPrincipal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+.barraNavegacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 20px 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.imgLogoPrincipal {
+    width: 280px;
+}
+
+.enlacesNavegacion {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    font-size: 18px;
+    color: #5a4a15;
+}
+
+.opcionMenu {
+    cursor: pointer;
+    padding: 10px 18px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.opcionMenu:hover {
+    color: #bd9a2a;
+    border-color: #bd9a2a;
+    background-color: rgba(189, 154, 42, 0.05);
+}
+
+.seccionActual {
+    font-weight: bold;
+    color: #bd9a2a;
+    border-color: #bd9a2a;
+}
+
+.menuToggle {
+    display: none;
+}
+
+.botonMenu {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.botonMenu span {
+    width: 30px;
+    height: 3px;
+    background-color: #1d2d44;
+}
+
+.seccionHeroJusticia {
+    width: 100%;
+    height: 600px;
+    background-color: #0d1627;
+    margin-top: 105px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contenedorHeroInterno {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.imagenHeroFondo {
+    width: 55%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.imagenHeroFondo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.contenidoHeroTexto {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 8% 0 58%;
+    z-index: 2;
+}
+
+.contenidoHeroTexto h1 {
+    color: #cfb268;
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.contenidoHeroTexto p {
+    color: #ffffff;
+    font-size: 21px;
+    line-height: 1.7;
+    max-width: 800px;
+}
+
+.seccionCasosExito {
+    padding: 80px 40px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.cabeceraCasosExito {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cabeceraCasosExito h2 {
+    color: #1d2d44;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.cabeceraCasosExito p {
+    color: #555;
+    font-size: 20px;
+}
+
+.cuadriculaCasos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.tarjetaCasoGrande {
+    background-color: #ffffff;
+    border: 1px solid rgba(207, 178, 104, 0.3);
+    border-radius: 20px;
+    padding: 40px 20px;
+    width: 18%;
+    min-width: 200px;
+    min-height: 340px;
+    color: #1d2d44;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tarjetaCasoGrande:hover,
+.tarjetaCasoGrande:active,
+.tarjetaCasoGrande:focus {
+    transform: translateY(-10px);
+    border-color: #cfb268;
+    box-shadow: 0 15px 35px rgba(207, 178, 104, 0.2);
+}
+
+.circuloProgreso {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 6px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.tarjetaCasoGrande:hover .circuloProgreso,
+.tarjetaCasoGrande:active .circuloProgreso,
+.tarjetaCasoGrande:focus .circuloProgreso {
+    transform: scale(0.8);
+}
+
+.interiorCirculo {
+    width: 135px;
+    height: 135px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    font-weight: bold;
+    color: #1d2d44;
+}
+
+.contenidoOcultoHover {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    text-align: center;
+    gap: 15px;
+    transition: bottom 0.35s ease-in-out;
+}
+
+.tarjetaCasoGrande:hover .contenidoOcultoHover,
+.tarjetaCasoGrande:active .contenidoOcultoHover,
+.tarjetaCasoGrande:focus .contenidoOcultoHover {
+    bottom: 0;
+}
+
+.contenidoOcultoHover h3 {
+    font-size: 22px;
+    color: #1d2d44;
+}
+
+.resaltadoDato {
+    font-size: 19px;
+    font-weight: bold;
+    color: #1d2d44;
+    background-color: rgba(207, 178, 104, 0.15);
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.descripcionCaso {
+    font-size: 17px;
+    color: #555555;
+    line-height: 1.6;
+}
+
+.seccionAreasPractica {
+    padding: 80px 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.cabeceraPractica h1 {
+    font-size: 42px;
+    color: #1d2d44;
+}
+
+.cabeceraPractica h2 {
+    font-size: 28px;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+.cuadriculaPractica {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: center;
+    width: 100%;
+}
+
+.tarjetaPractica {
+    background-color: #ffffff;
+    color: #1d2d44;
+    width: 30%;
+    min-width: 380px;
+    padding: 45px 35px;
+    border-radius: 16px;
+    border: 1px solid rgba(207, 178, 104, 0.3);
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.tarjetaPractica:hover {
+    background-color: #1d2d44;
+    color: #ffffff;
+    transform: translateY(-8px);
+    border-color: #cfb268;
+    box-shadow: 0 15px 35px rgba(29, 45, 68, 0.2);
+}
+
+.iconoTarjeta {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.tarjetaPractica h3 {
+    font-size: 26px;
+    margin-bottom: 16px;
+    color: #1d2d44;
+    transition: color 0.3s ease;
+}
+
+.tarjetaPractica:hover h3 {
+    color: #cfb268;
+}
+
+.tarjetaPractica p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555555;
+    transition: color 0.3s ease;
+}
+
+.tarjetaPractica:hover p {
+    color: #d1d5db;
+}
+
+.contenedorBotonConsulta {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.botonProgramaConsulta {
+    background-color: #d4af37;
+    color: white;
+    border: none;
+    padding: 20px 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.botonProgramaConsulta:hover {
+    background-color: #b89c30;
+}
+
+.seccionServiciosEspecializados {
+    padding: 80px 40px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.cabeceraEspecializados {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cabeceraEspecializados h2 {
+    color: #1d2d44;
+    font-size: 40px;
+}
+
+.cuadriculaEspecializados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    width: 100%;
+}
+
+.tarjetaEspecializada {
+    background-color: #2b3954;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    min-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.imagenEspecializada {
+    width: 100%;
+    height: 300px;
+}
+
+.imagenEspecializada img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contenidoEspecializado {
+    padding: 40px 30px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.contenidoEspecializado h3 {
+    color: #cfb268;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.contenidoEspecializado p {
+    color: white;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.seccionEvaluacion {
+    background-color: transparent;
+    padding: 80px 40px;
+    text-align: center;
+    border-bottom: 8px solid #1d2d44;
+    width: 100%;
+}
+
+.subtituloEvaluacion {
+    color: #555;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.seccionEvaluacion h2 {
+    color: #1d2d44;
+    font-size: 44px;
+    margin-bottom: 35px;
+}
+
+.botonDorado {
+    background-color: #cfb268;
+    color: white;
+    border: none;
+    padding: 22px 48px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.piePaginaNuevo {
+    background-color: #162032; 
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+
+.contenedorPiePaginaSuperior {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 70px 6%;
+    gap: 45px;
+    width: 100%;
+}
+
+.columnaPiePagina {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textoLogoPiePagina {
+    color: #cfb268;
+    letter-spacing: 2px;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.lineaDoradaCorta {
+    width: 90px;
+    height: 3px;
+    background-color: #cfb268;
+    margin-bottom: 22px;
+}
+
+.columnaPiePagina p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.tituloDoradoPiePagina {
+    color: #cfb268;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.botonBlanco {
+    background-color: white;
+    color: #cfb268;
+    border: none;
+    padding: 14px 28px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 17px;
+}
+
+.iconosRedes {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.iconoRed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.iconoRed img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.iconoRed:hover {
+    transform: scale(1.1);
+    background-color: #cfb268;
+}
+
+.listaEnlacesTexto {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.listaEnlacesTexto p {
+    color: #d1d5db;
+    font-size: 17px;
+}
+
+.franjaDoradaInferior {
+    background-color: #cfb268;
+    padding: 25px 6%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 70px;
+    color: #0d1627; 
+    font-weight: bold;
+    font-size: 17px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.itemFranjaInferior {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contenedorModal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(13, 22, 39, 0.88);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.cuerpoModal {
+    background-color: #162032;
+    width: 90%;
+    max-width: 750px;
+    padding: 55px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+    border: 1px solid rgba(207, 178, 104, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.cerrarModal {
+    position: absolute;
+    top: 22px; right: 30px;
+    color: #cfb268;
+    font-size: 42px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cabeceraModal {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.subtituloModalTexto {
+    color: #cfb268;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.cabeceraModal h2 {
+    color: white;
+    font-size: 32px;
+    line-height: 1.3;
+}
+
+.subtituloModal {
+    color: #d1d5db;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 8px;
+    text-align: left;
+}
+
+.formularioModalCita {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.filaFormulario {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.textoEtiqueta {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.grupoDoble {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.grupoDoble .entradaTexto, 
+.grupoDoble select {
+    flex: 1;
+}
+
+.campoFormulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.campoFormulario .textoEtiqueta {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.asteriscoObligatorio {
+    color: #e74c3c;
+}
+
+.entradaTexto, .entradaAreaTexto {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+.entradaTexto::placeholder, .entradaAreaTexto::placeholder {
+    color: #9ca3af;
+}
+
+.entradaTexto:focus, .entradaAreaTexto:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #cfb268;
+}
+
+.filaDobleFormulario {
+    display: flex;
+    gap: 25px;
+}
+
+.filaDobleFormulario .campoFormulario {
+    flex: 1;
+}
+
+.campoFormularioTerminos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.campoFormularioTerminos .textoEtiqueta {
+    font-size: 16px;
+    color: white;
+}
+
+.contenedorCasilla {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-size: 16px;
+}
+
+.contenedorCasilla input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #cfb268;
+    cursor: pointer;
+}
+
+.enlacePolitica {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+.enlacePolitica:hover {
+    color: #93c5fd;
+}
+
+.contenedorBotonEnviar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.botonEnviarModal {
+    background-color: #cfb268;
+    color: #0d1627;
+    border: none;
+    width: 100%;
+    padding: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonEnviarModal:hover {
+    background-color: #b89c55;
+}
+
+@media (max-width: 1100px) {
+    .tarjetaCasoGrande {
+        width: 30%;
+    }
+    .tarjetaPractica, .tarjetaEspecializada {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .enlacesNavegacion {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .menuToggle:checked ~ .enlacesNavegacion {
+        display: flex;
+    }
+
+    .botonMenu {
+        display: flex;
+    }
+
+    .contenedorHeroInterno {
+        flex-direction: column;
+    }
+
+    .imagenHeroFondo {
+        width: 100%;
+        height: 320px;
+        position: relative;
+    }
+
+    .contenidoHeroTexto {
+        width: 100%;
+        padding: 40px 25px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenidoHeroTexto h1 {
+        font-size: 36px;
+    }
+
+    .contenidoHeroTexto p {
+        font-size: 18px;
+    }
+
+    .cabeceraCasosExito h2,
+    .cabeceraPractica h1,
+    .cabeceraEspecializados h2,
+    .seccionEvaluacion h2 {
+        font-size: 28px;
+    }
+
+    .cabeceraPractica h2 {
+        font-size: 20px;
+    }
+
+    .cuadriculaCasos, .cuadriculaPractica, .cuadriculaEspecializados {
+        flex-wrap: wrap;
+    }
+
+    .tarjetaCasoGrande {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .tarjetaPractica, .tarjetaEspecializada {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .contenedorPiePaginaSuperior {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 25px;
+    }
+
+    .columnaPiePagina {
+        align-items: center;
+    }
+
+    .franjaDoradaInferior {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cuerpoModal {
+        padding: 25px;
+        width: 95%;
+    }
+    
+    .filaFormulario, .filaDobleFormulario {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
